@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Telemedicina para Empresas e RH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #fdf7fb;
+      color: #222;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #f3dbee;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    nav .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #8b3f72;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #444;
+    }
+    nav a:hover {
+      background: #f6e2f0;
+    }
+
+    .hero {
+      padding: 48px 0 32px;
+      background: linear-gradient(135deg, #ffe6f6, #ffffff);
+      border-bottom: 1px solid #f3dbee;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #7a2f66;
+    }
+    .hero p {
+      max-width: 620px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .hero-highlight {
+      background: #fde9f5;
+      border: 1px solid #f3c8e7;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      color: #7a2f66;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      background: #8b3f72;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #702957;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid #e3badc;
+      color: #7a2f66;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    section { padding: 32px 0; }
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #7a2f66;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 2px 8px #00000012;
+      margin-bottom: 16px;
+    }
+
+    .safe-box {
+      border-left: 4px solid #2f9e44;
+      background: #f3fbf5;
+    }
+
+    .risk-box {
+      border-left: 4px solid #c92a2a;
+      background: #fff5f5;
+    }
+
+    .list-strong li {
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    ul { padding-left: 18px; margin-bottom: 8px; }
+    ul li { margin-bottom: 4px; }
+
+    .faq-item { margin-bottom: 16px; }
+    .faq-item strong { display: block; margin-bottom: 4px; }
+
+    .price-tag {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #7a2f66;
+      margin-bottom: 4px;
+    }
+    .price-note { font-size: 0.95rem; color: #555; }
+
+    footer {
+      background: #2b1222;
+      color: #f7e8f2;
+      padding: 24px 0;
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .hero-inner, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Telemedicina • Empresas e RH</div>
+      <ul>
+        <li><a href="index.html">Página para pacientes</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#fluxo">Fluxo para o RH</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="topo">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <h1>Telemedicina para empresas em casos não urgentes</h1>
+          <p>
+            Serviço médico online voltado para empresas que desejam oferecer avaliação clínica
+            estruturada aos colaboradores em situações não urgentes, com foco em segurança,
+            responsabilidade e uso adequado de atestados.
+          </p>
+
+          <div class="hero-highlight">
+            📝 Avaliação médica online de colaboradores<br>
+            📝 Definição de duração adequada em possíveis atestados, quando clinicamente indicado
+          </div>
+
+          <p class="price-tag">Modelo de atendimento: consulta online avulsa – R$ 100,00 por avaliação</p>
+          <p class="price-note">
+            Utilização recomendada para queixas não emergenciais, quando há dúvida sobre necessidade
+            de afastamento ou tempo de afastamento.
+          </p>
+
+          <a class="btn-primary" href="SUA_URL_DA_SHOSP_AQUI" target="_blank">
+            Falar sobre contratação
+          </a>
+        </div>
+
+        <div>
+          <div class="card">
+            <span class="tag">Não substitui PCMSO</span>
+            <span class="tag">Não é serviço de urgência</span>
+            <span class="tag">Atendimento individual, caso a caso</span>
+            <p style="margin-top: 10px;">
+              O foco é a avaliação clínica do colaborador em situações pontuais,
+              sempre com decisão técnica, ética e centrada na saúde da pessoa.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="container">
+      <h2>Como funciona para a empresa</h2>
+
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <strong>1. Indicação pelo RH ou gestor</strong>
+            <p>
+              Em situações não urgentes, quando o colaborador relata sintomas ou necessidade de
+              afastamento, o RH ou o gestor pode direcionar para avaliação médica online,
+              em vez de deixar o colaborador procurar atendimento por conta própria.
+            </p>
+          </div>
+
+          <div class="card">
+            <strong>2. Agendamento da consulta</strong>
+            <p>
+              A empresa ou o próprio colaborador agenda a consulta online em horário disponível.
+              A consulta é individual, sigilosa e conduzida diretamente entre médico(a) e colaborador.
+            </p>
+          </div>
+
+          <div class="card">
+            <strong>3. Avaliação clínica do caso</strong>
+            <p>
+              Durante a teleconsulta, é feita a avaliação clínica, com anamnese estruturada,
+              análise da queixa e, quando houver, de documentos ou exames já disponíveis.
+            </p>
+          </div>
+
+          <div class="card safe-box">
+            <strong>4. Possibilidade de atestado</strong>
+            <p>
+              Quando há indicação clínica, pode ser emitido atestado médico digital, com
+              duração adequada à situação, sempre baseado na avaliação individual do caso.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card risk-box">
+            <strong>⚠️ Limites do serviço</strong>
+            <ul class="list-strong">
+              <li>Não é serviço de urgência ou emergência.</li>
+              <li>Não substitui exames presenciais quando são necessários.</li>
+              <li>Não substitui programas obrigatórios como PCMSO e afins.</li>
+              <li>Não se destina a situações de risco imediato à vida ou agravamento rápido.</li>
+            </ul>
+            <p>
+              Em casos de suspeita de gravidade, o colaborador será orientado a procurar
+              atendimento presencial ou serviço de urgência, de forma clara e objetiva.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="container">
+      <h2>Benefícios para a empresa e para o colaborador</h2>
+
+      <div class="grid-2">
+        <div>
+          <div class="card safe-box">
+            <strong>Para a empresa</strong>
+            <ul class="list-strong">
+              <li>Redução de incertezas sobre afastamentos.</li>
+              <li>Avaliação médica estruturada em casos não urgentes.</li>
+              <li>Uso mais adequado e proporcional de atestados.</li>
+              <li>Canal formal de orientação clínica para o colaborador.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <strong>Para o colaborador</strong>
+            <ul class="list-strong">
+              <li>Acesso rápido a um(a) médico(a) generalista.</li>
+              <li>Escuta qualificada e orientação segura.</li>
+              <li>Definição clara sobre necessidade ou não de afastamento.</li>
+              <li>Encaminhamento para atendimento presencial quando necessário.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>
+          Em todas as situações, a decisão é técnica, ética e centrada na saúde do colaborador,
+          com respeito ao sigilo médico e às normas profissionais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fluxo">
+    <div class="container">
+      <h2>Fluxo sugerido para uso pelo RH</h2>
+
+      <div class="card">
+        <ol style="padding-left: 20px;">
+          <li>O colaborador comunica sintomas ou necessidade de afastamento ao gestor ou RH.</li>
+          <li>O RH avalia se se trata de um caso não urgente.</li>
+          <li>Confirmado que não é urgência, o colaborador é orientado a realizar a consulta online.</li>
+          <li>O agendamento é feito pelo link de teleconsulta fornecido pela empresa.</li>
+          <li>O colaborador realiza a consulta online diretamente com o(a) médico(a).</li>
+          <li>Se houver indicação clínica, o colaborador recebe atestado digital e orientações.</li>
+          <li>O colaborador apresenta o documento médico à empresa pelos canais internos.</li>
+        </ol>
+      </div>
+
+      <div class="card risk-box">
+        <strong>⚠️ Situações em que a empresa NÃO deve utilizar este serviço</strong>
+        <ul class="list-strong">
+          <li>Suspeita de infarto, AVC ou outras emergências.</li>
+          <li>Casos com risco de agravamento rápido.</li>
+          <li>Acidentes graves, traumas importantes ou sangramentos intensos.</li>
+        </ul>
+        <p>
+          Nesses cenários, o colaborador deve ser encaminhado diretamente a um serviço de urgência
+          (como UPA ou pronto-socorro), e não ao agendamento de consulta online.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Perguntas frequentes de empresas</h2>
+      <div class="card">
+        <div class="faq-item">
+          <strong>Este serviço substitui o médico do trabalho ou o PCMSO?</strong>
+          <p>
+            Não. A telemedicina aqui apresentada é voltada para avaliação clínica pontual em casos
+            não urgentes. Ela não substitui programas ocupacionais obrigatórios.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>O atestado digital é válido?</strong>
+          <p>
+            Quando emitido, o atestado segue os critérios médicos e deve respeitar a legislação
+            vigente. A aceitação é feita pela empresa conforme suas normas internas e leis aplicáveis.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>A empresa tem acesso ao conteúdo da consulta?</strong>
+          <p>
+            Não. O conteúdo clínico é sigiloso entre médico(a) e paciente. A empresa recebe apenas
+            o documento fornecido pelo colaborador (como atestado, quando houver).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2>Contato para empresas</h2>
+      <div class="card">
+        <p>
+          Se sua empresa tem interesse em utilizar a telemedicina em casos não urgentes,
+          entre em contato para alinhar dúvidas e condições de uso.
+        </p>
+        <p><strong>E-mail:</strong> seuemail@profissional.com</p>
+        <p><strong>WhatsApp corporativo:</strong> <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank">(xx) xxxxx-xxxx</a></p>
+        <p><strong>Agendamento online (caso já contratado):</strong>
+          <a href="SUA_URL_DA_SHOSP_AQUI" target="_blank">acessar agenda</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Atendimento médico online para empresas em situações não urgentes, com foco em segurança, ética e responsabilidade.</p>
+  </div>
+</footer>
+
+</body>
+</html>
