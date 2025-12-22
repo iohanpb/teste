@@ -2,14 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Telemedicina - Dr(a). Seu Nome</title>
+  <title>Telemedicina - Consulta Médica On-line</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      background: #f5f5f5;
+      background: #fdf7fb;
       color: #222;
     }
     header {
@@ -18,7 +18,7 @@
       z-index: 100;
       background: #ffffffcc;
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #f3dbee;
     }
     .container {
       max-width: 960px;
@@ -33,7 +33,8 @@
     }
     nav .brand {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      color: #8b3f72;
     }
     nav ul {
       list-style: none;
@@ -46,24 +47,41 @@
       font-size: 0.95rem;
       padding: 6px 10px;
       border-radius: 999px;
+      color: #444;
     }
     nav a:hover {
-      background: #eee;
+      background: #f6e2f0;
     }
+
     .hero {
       padding: 48px 0 32px;
-      text-align: center;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
+      background: linear-gradient(135deg, #ffe6f6, #ffffff);
+      border-bottom: 1px solid #f3dbee;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: center;
     }
     .hero h1 {
-      font-size: 1.9rem;
+      font-size: 2rem;
       margin-bottom: 12px;
+      color: #7a2f66;
     }
     .hero p {
       max-width: 600px;
-      margin: 0 auto 20px;
+      margin-bottom: 16px;
       font-size: 1rem;
+    }
+    .hero-highlight {
+      background: #fde9f5;
+      border: 1px solid #f3c8e7;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      color: #7a2f66;
+      font-weight: 600;
     }
     .btn-primary {
       display: inline-block;
@@ -71,281 +89,364 @@
       border-radius: 999px;
       text-decoration: none;
       font-weight: 600;
-      background: #0b7285;
+      background: #8b3f72;
       color: #fff;
     }
     .btn-primary:hover {
-      background: #0a6070;
+      background: #702957;
     }
-    section {
-      padding: 32px 0;
+
+    .doctor-photo {
+      display: flex;
+      justify-content: center;
     }
+    .doctor-photo img {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px #0000001a;
+      border: 4px solid #f6e2f0;
+    }
+    .photo-caption {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    section { padding: 32px 0; }
     section h2 {
       font-size: 1.5rem;
       margin-bottom: 16px;
+      color: #7a2f66;
     }
+
     .grid-2 {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
       gap: 24px;
     }
+
     .card {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 20px;
-      box-shadow: 0 2px 6px #0000000d;
+      box-shadow: 0 2px 8px #00000012;
       margin-bottom: 16px;
     }
     .alert {
       border-left: 4px solid #c92a2a;
       background: #fff5f5;
     }
-    ul {
-      padding-left: 18px;
-      margin-bottom: 8px;
-    }
-    ul li {
+
+    ul { padding-left: 18px; margin-bottom: 8px; }
+    ul li { margin-bottom: 4px; }
+
+    .faq-item { margin-bottom: 16px; }
+    .faq-item strong { display: block; margin-bottom: 4px; }
+
+    .price-tag {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #7a2f66;
       margin-bottom: 4px;
     }
-    .faq-item {
-      margin-bottom: 16px;
-    }
-    .faq-item strong {
-      display: block;
-      margin-bottom: 4px;
-    }
+    .price-note { font-size: 0.95rem; color: #555; }
+
     footer {
-      background: #111;
-      color: #ddd;
+      background: #2b1222;
+      color: #f7e8f2;
       padding: 24px 0;
       font-size: 0.85rem;
+      margin-top: 12px;
     }
-    footer a {
-      color: #fff;
-    }
+
     @media (max-width: 720px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
+      .grid-2, .hero-inner { grid-template-columns: 1fr; }
       nav {
         flex-direction: column;
         align-items: flex-start;
+        gap: 4px;
       }
-      nav ul {
-        padding-top: 8px;
-      }
-      .hero h1 {
-        font-size: 1.6rem;
-      }
+      .hero h1 { font-size: 1.65rem; }
+      .doctor-photo { margin-top: 10px; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">Dr(a). Seu Nome – CRM UF/000000</div>
-        <ul>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#telemedicina">Telemedicina</a></li>
-          <li><a href="#faq">Dúvidas</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Médica generalista • Telemedicina</div>
+      <ul>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#empresas">Para empresas</a></li>
+        <li><a href="#investimento">Valor</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="topo">
-      <div class="container">
-        <h1>Consulta médica on-line com segurança e responsabilidade</h1>
+<main>
+  <section class="hero" id="topo">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <h1>Consulta médica on-line com acolhimento, rapidez e segurança</h1>
+          <p>
+            Telemedicina com cuidado humano, linguagem simples e orientação responsável.
+            Atendimento para pacientes individuais e também para empresas que precisam de avaliação médica
+            rápida e ética de colaboradoras e colaboradores.
+          </p>
+
+          <div class="hero-highlight">
+            👉 Agendamento on-line imediato, com <strong>disponibilidade rápida</strong> para atendimento.
+          </div>
+
+          <p class="hero-highlight">
+            💗 Valor da consulta: <strong>R$ 100,00</strong><br>
+            Inclui <strong>1 retorno</strong> sobre o mesmo caso, em até 7 dias.
+          </p>
+
+          <a class="btn-primary" href="SUA_URL_DA_SHOSP_AQUI" target="_blank">Agendar agora</a>
+        </div>
+
+        <div class="doctor-photo">
+          <div>
+            <img src="https://via.placeholder.com/400x400.png?text=Foto+da+M%C3%A9dica" alt="Foto ilustrativa da médica">
+            <div class="photo-caption">Foto ilustrativa. Em breve, a foto oficial da médica estará aqui.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="aviso-urgencia">
+    <div class="container">
+      <div class="card alert">
+        <h2>⚠️ Este serviço não atende urgências</h2>
         <p>
-          Atendimento médico generalista por telemedicina, com avaliação cuidadosa do seu caso
-          e, quando indicado, emissão de receitas, atestados e solicitações de exames em formato digital.
+          Em caso de sintomas graves como dor no peito, falta de ar importante, sangramento intenso,
+          perda de consciência, sintomas neurológicos súbitos, dor abdominal intensa ou febre persistente
+          em crianças e idosos, procure imediatamente uma UPA, pronto-socorro ou ligue 192 (SAMU).
         </p>
-        <a class="btn-primary" href="SUA_URL_DA_SHOSP_AQUI" target="_blank" rel="noopener">
-          Agendar consulta on-line
-        </a>
       </div>
-    </section>
-
-    <section id="aviso-urgencia">
-      <div class="container">
-        <div class="card alert">
-          <h2>⚠️ Este serviço NÃO é para urgências</h2>
-          <p>
-            Se você estiver com dor no peito, falta de ar importante, sangramento intenso, perda de consciência,
-            sintomas neurológicos súbitos, dor abdominal intensa, febre alta persistente em crianças ou idosos,
-            ou qualquer outro sintoma grave ou de rápida piora, <strong>não aguarde consulta on-line</strong>.
-          </p>
-          <p>
-            Procure imediatamente um serviço de pronto atendimento, UPA, pronto-socorro ou ligue <strong>192 (SAMU)</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona">
-      <div class="container">
-        <h2>Como funciona a consulta on-line</h2>
-        <div class="grid-2">
-          <div>
-            <div class="card">
-              <strong>1. Agendamento</strong>
-              <p>Você agenda a consulta pela plataforma on-line. O atendimento pode ocorrer em até <strong>24 horas</strong>, de acordo com os horários disponíveis.</p>
-            </div>
-            <div class="card">
-              <strong>2. Orientações e acesso</strong>
-              <p>Você recebe as orientações da teleconsulta e o link para acesso seguro no horário combinado.</p>
-            </div>
-            <div class="card">
-              <strong>3. Consulta por telemedicina</strong>
-              <p>Durante a consulta, avaliamos sua queixa, histórico, exames já realizados e definimos a conduta mais adequada.</p>
-            </div>
-            <div class="card">
-              <strong>4. Receitas, atestados e exames</strong>
-              <p>Quando clinicamente indicado, são emitidas receitas, atestados e solicitações de exames em formato digital, com assinatura eletrônica válida em todo o Brasil.</p>
-            </div>
-          </div>
-          <div>
-            <div class="card">
-              <strong>Casos em que a telemedicina costuma ser adequada</strong>
-              <ul>
-                <li>Acompanhamento de pressão alta, diabetes e colesterol estáveis</li>
-                <li>Retorno de exames</li>
-                <li>Ansiedade leve a moderada, insônia, estresse</li>
-                <li>Sintomas respiratórios leves, sem falta de ar importante</li>
-                <li>Queixas de pele com boa imagem</li>
-                <li>Orientações gerais de saúde e segunda opinião</li>
-              </ul>
-            </div>
-            <div class="card">
-              <strong>Quando o atendimento presencial é mais seguro</strong>
-              <ul>
-                <li>Dor no peito, falta de ar, palpitações intensas</li>
-                <li>Dor abdominal intensa ou súbita</li>
-                <li>Sangramento intenso</li>
-                <li>Sinais neurológicos súbitos (fraqueza, dificuldade para falar, convulsão)</li>
-                <li>Traumas, quedas importantes, acidentes</li>
-                <li>Febre alta persistente em crianças ou idosos</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sobre">
-      <div class="container">
-        <h2>Sobre o(a) médico(a)</h2>
-        <div class="card">
-          <p><strong>Dr(a). Seu Nome Completo</strong> – CRM UF/000000</p>
-          <p>
-            Médico(a) generalista com atuação em atendimento clínico ambulatorial e telemedicina.
-            Realizo avaliação integral do paciente, com foco em escuta qualificada, explicação clara
-            do raciocínio clínico e decisões compartilhadas.
-          </p>
-          <p>
-            Atendo adultos e adolescentes, com foco em:
-          </p>
-          <ul>
-            <li>Sintomas clínicos comuns</li>
-            <li>Acompanhamento de doenças crônicas estáveis</li>
-            <li>Saúde mental leve a moderada</li>
-            <li>Orientação clínica e segunda opinião</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="telemedicina">
-      <div class="container">
-        <h2>Telemedicina com segurança</h2>
-        <div class="card">
-          <p>
-            As consultas são realizadas por telemedicina, com registro em prontuário eletrônico e respeito
-            total ao sigilo médico e à Lei Geral de Proteção de Dados (LGPD).
-          </p>
-          <p>
-            Durante o atendimento, avalio se o seu caso é adequado para teleconsulta. Se houver necessidade
-            de exame físico ou suspeita de condição grave, você será orientado(a) a procurar atendimento
-            presencial ou serviço de urgência.
-          </p>
-          <p>
-            Receitas, atestados e solicitações de exames são emitidos em formato digital, com assinatura 
-            eletrônica certificada, válidos em território nacional, quando houver indicação clínica.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <h2>Dúvidas frequentes</h2>
-        <div class="card">
-          <div class="faq-item">
-            <strong>Em quanto tempo serei atendido(a)?</strong>
-            <p>
-              O atendimento pode ocorrer em até 24 horas após o agendamento, de acordo com a disponibilidade
-              de horários. Este serviço não se destina a urgências ou emergências.
-            </p>
-          </div>
-          <div class="faq-item">
-            <strong>As receitas são válidas em farmácias?</strong>
-            <p>
-              Sim. As receitas são emitidas em formato digital, com assinatura eletrônica certificada, e são
-              aceitas em farmácias que operam de acordo com a legislação brasileira vigente.
-            </p>
-          </div>
-          <div class="faq-item">
-            <strong>Você emite atestados médicos?</strong>
-            <p>
-              Sim, quando há indicação clínica após avaliação. A emissão de atestado não é automática nem
-              garantida; depende exclusivamente da condição de saúde avaliada na consulta.
-            </p>
-          </div>
-          <div class="faq-item">
-            <strong>Como funciona o pagamento?</strong>
-            <p>
-              (Descreva aqui a forma de pagamento: Pix, cartão, link de pagamento, plano, etc.)
-            </p>
-          </div>
-          <div class="faq-item">
-            <strong>A consulta on-line é sigilosa?</strong>
-            <p>
-              Sim. O atendimento é feito por meio de ambiente seguro, com registro em prontuário eletrônico
-              e obediência às normas do Conselho Federal de Medicina e à LGPD.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="container">
-        <h2>Contato</h2>
-        <div class="card">
-          <p><strong>Agendamento on-line:</strong> <a href="SUA_URL_DA_SHOSP_AQUI" target="_blank" rel="noopener">clique aqui para agendar</a></p>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener">(xx) xxxxx-xxxx</a></p>
-          <p><strong>E-mail profissional:</strong> seuemail@profissional.com</p>
-          <p><strong>Atendimento por telemedicina para todo o Brasil, de acordo com a regulamentação vigente.</strong></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        Este site tem caráter informativo e não substitui a consulta médica presencial quando necessária.
-        Os atendimentos são realizados por telemedicina, com registro em prontuário eletrônico e respeito
-        integral ao sigilo profissional e à LGPD.
-      </p>
-      <p style="margin-top: 8px;">
-        Em caso de sintomas graves ou de risco, procure imediatamente um serviço de urgência ou ligue 192 (SAMU).
-      </p>
     </div>
-  </footer>
+  </section>
+
+  <section id="como-funciona">
+    <div class="container">
+      <h2>Como funciona para pacientes</h2>
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <strong>1. Agendamento rápido</strong>
+            <p>Você agenda on-line em poucos minutos e já garante um horário próximo para a consulta.</p>
+          </div>
+          <div class="card">
+            <strong>2. Acesso simples e seguro</strong>
+            <p>Recebe o link e as orientações para entrar na consulta por telemedicina com segurança e privacidade.</p>
+          </div>
+          <div class="card">
+            <strong>3. Consulta acolhedora</strong>
+            <p>
+              A médica avalia seus sintomas, histórico e contexto de vida, tira dúvidas e explica as opções
+              de cuidado de forma clara e tranquila.
+            </p>
+          </div>
+          <div class="card">
+            <strong>4. Documentos médicos quando indicado</strong>
+            <p>
+              Quando há indicação clínica, podem ser emitidos receita digital, atestado e pedidos de exame,
+              com validade em todo o território nacional.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <strong>Quando a telemedicina ajuda muito</strong>
+            <ul>
+              <li>Retorno de exames e acompanhamento</li>
+              <li>Orientações médicas e dúvidas do dia a dia</li>
+              <li>Ansiedade leve, estresse e insônia</li>
+              <li>Sintomas leves, sem sinais de gravidade</li>
+              <li>Queixas de pele com boa imagem</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Quando o presencial é mais seguro</strong>
+            <ul>
+              <li>Dor no peito, falta de ar</li>
+              <li>Sinais neurológicos súbitos</li>
+              <li>Dor abdominal intensa</li>
+              <li>Sangramento importante</li>
+              <li>Trauma, quedas e acidentes</li>
+            </ul>
+            <p style="font-size:0.9rem; margin-top:4px;">
+              Nesses casos, a orientação é sempre buscar atendimento presencial imediato.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="empresas">
+    <div class="container">
+      <h2>Atendimento para empresas e RH</h2>
+      <div class="card">
+        <p>
+          Além do atendimento individual, a telemedicina também pode apoiar empresas no cuidado à saúde de suas
+          equipes, especialmente em situações em que um colaborador relata necessidade de afastamento e a empresa
+          precisa de uma avaliação médica responsável.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <strong>Como a empresa pode utilizar o serviço</strong>
+            <ul>
+              <li>Encaminhar colaboradores para avaliação médica on-line.</li>
+              <li>Esclarecer se há indicação de afastamento no momento.</li>
+              <li>Definir, quando necessário, o <strong>tempo adequado de afastamento</strong> em atestado.</li>
+              <li>Orientar retorno ao trabalho, cuidados e necessidade de acompanhamento posterior.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <strong>O que a empresa recebe (e o que não recebe)</strong>
+            <ul>
+              <li>A empresa pode receber o <strong>atestado médico</strong> emitido pela profissional, se houver indicação.</li>
+              <li>O conteúdo da consulta e detalhes clínicos permanecem sob <strong>sigilo médico</strong>.</li>
+              <li>A decisão sobre emitir ou não atestado, e por quantos dias, é sempre <strong>técnica e ética</strong>.</li>
+              <li>Este serviço não substitui exames ocupacionais obrigatórios (ASO, PCMSO), mas pode complementar o cuidado.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <strong>Fluxo sugerido para empresas</strong>
+        <ul>
+          <li>A empresa disponibiliza o link de agendamento para o colaborador.</li>
+          <li>O colaborador agenda a consulta e é atendido normalmente, com sigilo.</li>
+          <li>Se houver indicação de afastamento, o atestado é emitido em formato digital.</li>
+          <li>A empresa recebe o atestado diretamente do colaborador, como em qualquer atendimento médico.</li>
+        </ul>
+        <p style="font-size:0.9rem; margin-top:4px;">
+          Condições específicas para volume maior de atendimentos podem ser combinadas caso a caso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="investimento">
+    <div class="container">
+      <h2>Valor da consulta</h2>
+      <div class="card">
+        <p class="price-tag">Consulta on-line: R$ 100,00</p>
+        <p class="price-note">
+          ✔️ Valor por consulta, tanto para pacientes individuais quanto para empresas que encaminham colaboradores. <br>
+          ✔️ Inclui <strong>1 retorno</strong> sobre o mesmo caso, em até <strong>7 dias</strong>, para revisão de sintomas,
+          ajustes de tratamento ou esclarecimento de dúvidas. <br>
+          ✔️ A emissão de atestado, receitas e pedidos de exame depende sempre da avaliação clínica e não é automática.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Dúvidas frequentes</h2>
+      <div class="card">
+        <div class="faq-item">
+          <strong>O atendimento é rápido?</strong>
+          <p>
+            Sim. O agendamento é feito on-line e há disponibilidade próxima para consulta, conforme a agenda da médica.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>As receitas são válidas em farmácias?</strong>
+          <p>
+            Sim. As receitas são emitidas em formato digital e podem ser aceitas em farmácias que operam de acordo
+            com a regulamentação brasileira.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Atestado é garantido em toda consulta?</strong>
+          <p>
+            Não. A emissão de atestado é uma decisão técnica. Ele só é emitido quando há indicação clínica
+            de afastamento, de acordo com o quadro do paciente.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Empresas podem contratar o serviço?</strong>
+          <p>
+            Sim. Empresas podem utilizar o serviço para que colaboradores sejam avaliados por telemedicina em casos
+            de possível necessidade de afastamento. O sigilo médico é mantido, e a empresa recebe apenas o atestado
+            ou orientações gerais, nunca detalhes confidenciais da consulta.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Este serviço substitui exame ocupacional (admissional, demissional)?</strong>
+          <p>
+            Não. A consulta por telemedicina não substitui exames ocupacionais obrigatórios (como ASO, PCMSO),
+            mas pode complementar o cuidado e a orientação em situações clínicas específicas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2>Contato</h2>
+      <div class="card">
+        <p>
+          <strong>Agendamento on-line (pacientes e empresas):</strong>
+          <a href="SUA_URL_DA_SHOSP_AQUI" target="_blank" rel="noopener">clique aqui para agendar</a>
+        </p>
+        <p>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener">(xx) xxxxx-xxxx</a>
+        </p>
+        <p><strong>E-mail profissional:</strong> seuemail@profissional.com</p>
+        <p style="font-size:0.9rem; margin-top:4px;">
+          Atendimentos por telemedicina, com sigilo, ética e respeito à legislação vigente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Este site tem caráter informativo e não substitui a consulta presencial quando necessária.
+      Os atendimentos são realizados por telemedicina, com registro em prontuário eletrônico e respeito
+      integral ao sigilo profissional e à LGPD.
+    </p>
+    <p style="margin-top: 8px;">
+      Em caso de sintomas graves ou de risco, procure imediatamente um serviço de urgência ou ligue 192 (SAMU).
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
