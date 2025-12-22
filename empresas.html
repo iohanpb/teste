@@ -12,6 +12,7 @@
       background: #fdf7fb;
       color: #222;
     }
+
     header {
       position: sticky;
       top: 0;
@@ -20,28 +21,33 @@
       backdrop-filter: blur(8px);
       border-bottom: 1px solid #f3dbee;
     }
+
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 0 16px;
     }
+
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 0;
     }
+
     nav .brand {
       font-weight: 700;
       font-size: 1.05rem;
       color: #8b3f72;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
+
     nav a {
       text-decoration: none;
       font-size: 0.95rem;
@@ -49,6 +55,7 @@
       border-radius: 999px;
       color: #444;
     }
+
     nav a:hover {
       background: #f6e2f0;
     }
@@ -58,22 +65,26 @@
       background: linear-gradient(135deg, #ffe6f6, #ffffff);
       border-bottom: 1px solid #f3dbee;
     }
+
     .hero-inner {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 24px;
       align-items: center;
     }
+
     .hero h1 {
       font-size: 2rem;
       margin-bottom: 12px;
       color: #7a2f66;
     }
+
     .hero p {
       max-width: 620px;
       margin-bottom: 16px;
       font-size: 1rem;
     }
+
     .hero-highlight {
       background: #fde9f5;
       border: 1px solid #f3c8e7;
@@ -93,6 +104,7 @@
       background: #8b3f72;
       color: #fff;
     }
+
     .btn-primary:hover {
       background: #702957;
     }
@@ -109,6 +121,7 @@
     }
 
     section { padding: 32px 0; }
+
     section h2 {
       font-size: 1.5rem;
       margin-bottom: 16px;
@@ -145,11 +158,14 @@
     }
 
     ul { padding-left: 18px; margin-bottom: 8px; }
-    ul li { margin-bottom: 4px; }
 
-    .price-tag { font-size: 1.2rem; font-weight: 700; color: #7a2f66; }
+    .price-tag {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #7a2f66;
+    }
 
-    /* ----------- CLIENTES (LOGOS) ----------- */
+    /* ----------- CLIENTES (logos simulados) ----------- */
     .clients-viewport {
       overflow: hidden;
       border-radius: 14px;
@@ -158,9 +174,10 @@
       padding: 16px 0;
       margin-top: 8px;
     }
+
     .clients-strip {
       display: flex;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
       padding: 8px 24px;
       animation: clients-scroll 25s linear infinite;
@@ -168,15 +185,24 @@
       white-space: nowrap;
     }
 
-    .client-logo img {
-      filter: grayscale(20%);
-      opacity: 0.9;
-      height: 48px;
-      width: auto;
+    .client-logo {
+      min-width: 150px;
+      height: 60px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f3d9fa, #ffe8f2);
+      border: 1px solid #e3badc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      box-shadow: 0 2px 6px #0000001a;
     }
-    .client-logo:hover img {
-      filter: grayscale(0%);
-      opacity: 1;
+
+    .client-logo span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #6b2d55;
+      text-align: center;
     }
 
     .clients-viewport:hover .clients-strip {
@@ -224,61 +250,221 @@
 
 <main>
 
-  <!-- (resto da página permanece igual ao que você já tem) -->
-
-  <!-- ================= CLIENTES ================= -->
-  <section id="clientes">
+  <section class="hero">
     <div class="container">
-      <h2>Nossos clientes</h2>
-      <p>Empresas que poderiam se beneficiar deste modelo de atendimento:</p>
+      <div class="hero-inner">
+        <div>
+          <h1>Telemedicina para empresas em casos não urgentes</h1>
+          <p>
+            Serviço médico online voltado para empresas que desejam oferecer avaliação clínica
+            estruturada aos colaboradores em situações não urgentes, com foco em segurança,
+            responsabilidade e uso adequado de afastamentos.
+          </p>
 
-      <div class="clients-viewport">
-        <div class="clients-strip">
-
-          <!-- LOGOS SIMULADOS -->
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo_Telecom.png">
+          <div class="hero-highlight">
+            📝 Avaliação médica online de colaboradores<br>
+            📝 Definição de duração adequada em possíveis atestados, quando indicado
           </div>
 
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Tech_Mahindra_New_Logo.svg">
+          <p class="price-tag">
+            Consulta online avulsa — R$ 100,00 por avaliação
+          </p>
+
+          <a class="btn-primary" href="SUA_URL_DA_SHOSP_AQUI" target="_blank">
+            Falar sobre contratação
+          </a>
+        </div>
+
+        <div>
+          <div class="card">
+            <span class="tag">Não substitui PCMSO</span>
+            <span class="tag">Não é urgência</span>
+            <span class="tag">Atendimento individual</span>
+            <p style="margin-top:10px">
+              O foco é avaliar o colaborador com responsabilidade e clareza clínica,
+              sempre com decisão técnica, ética e centrada na saúde da pessoa.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="container">
+      <h2>Como funciona</h2>
+
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <strong>1. Indicação pelo RH</strong>
+            <p>
+              Em situações não urgentes, o RH pode direcionar o colaborador para avaliação online,
+              em vez de deixá-lo buscar atendimento por conta própria.
+            </p>
           </div>
 
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Siemens-Logo.svg">
+          <div class="card">
+            <strong>2. Agendamento</strong>
+            <p>
+              A empresa ou o colaborador agenda a consulta em horário disponível.
+              A consulta é individual e sigilosa.
+            </p>
           </div>
 
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Accenture.svg">
+          <div class="card">
+            <strong>3. Avaliação médica</strong>
+            <p>
+              Durante a consulta, é feita avaliação clínica responsável do caso, com
+              orientações claras e embasadas.
+            </p>
           </div>
 
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Infosys_logo.svg">
+          <div class="card safe-box">
+            <strong>4. Possibilidade de atestado</strong>
+            <p>
+              Quando há indicação clínica, pode ser emitido atestado médico digital, com
+              duração adequada à condição apresentada e sempre baseado na avaliação individual.
+            </p>
           </div>
+        </div>
 
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Toyota_EU.svg">
+        <div>
+          <div class="card risk-box">
+            <strong>⚠️ Limites do serviço</strong>
+            <ul class="list-strong">
+              <li>Não é atendimento de urgência ou emergência.</li>
+              <li>Não substitui exames presenciais quando são necessários.</li>
+              <li>Não substitui programas ocupacionais obrigatórios (como PCMSO).</li>
+            </ul>
+            <p>
+              Em casos de suspeita de gravidade, o colaborador é orientado a procurar
+              atendimento presencial ou serviço de urgência.
+            </p>
           </div>
-
-          <!-- duplicados para looping suave -->
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Logo_Telecom.png">
-          </div>
-
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Tech_Mahindra_New_Logo.svg">
-          </div>
-
-          <div class="client-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Siemens-Logo.svg">
-          </div>
-
         </div>
       </div>
 
-      <p style="margin-top: 10px; font-size: 0.9rem; color:#555;">
-        Logos acima são ilustrativos. Quando tiver clientes reais, substituímos pelos logos corretos.
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="container">
+      <h2>Benefícios</h2>
+
+      <div class="grid-2">
+        <div>
+          <div class="card safe-box">
+            <strong>Para a empresa</strong>
+            <ul class="list-strong">
+              <li>Redução de incertezas sobre afastamentos.</li>
+              <li>Avaliação médica estruturada em casos não urgentes.</li>
+              <li>Uso mais adequado e proporcional de atestados.</li>
+              <li>Canal formal de orientação clínica para o colaborador.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <strong>Para o colaborador</strong>
+            <ul class="list-strong">
+              <li>Acesso rápido a um(a) médico(a) generalista.</li>
+              <li>Escuta qualificada e orientação segura.</li>
+              <li>Definição clara sobre necessidade ou não de afastamento.</li>
+              <li>Encaminhamento para atendimento presencial quando necessário.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>
+          Em todas as situações, a decisão é técnica, ética e centrada na saúde do colaborador,
+          com respeito ao sigilo médico e às normas profissionais.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="container">
+      <h2>Nossos clientes</h2>
+      <p>
+        Exemplos de empresas que poderiam utilizar este modelo de atendimento
+        em situações não urgentes:
       </p>
+
+      <div class="clients-viewport">
+        <div class="clients-strip">
+          <!-- Logos simulados - troque os nomes depois se quiser -->
+          <div class="client-logo"><span>Grupo Alfa</span></div>
+          <div class="client-logo"><span>Beta Serviços</span></div>
+          <div class="client-logo"><span>Clínica Integrada</span></div>
+          <div class="client-logo"><span>Tech &amp; Dados</span></div>
+          <div class="client-logo"><span>RH Plus</span></div>
+          <div class="client-logo"><span>Saúde Corporativa</span></div>
+          <!-- duplicados para looping suave -->
+          <div class="client-logo"><span>Grupo Alfa</span></div>
+          <div class="client-logo"><span>Beta Serviços</span></div>
+          <div class="client-logo"><span>Clínica Integrada</span></div>
+        </div>
+      </div>
+
+      <p style="margin-top:10px; font-size:0.9rem; color:#555">
+        Os nomes acima são ilustrativos. No futuro, podem ser substituídos pelos nomes
+        e marcas das empresas que de fato utilizarem o serviço.
+      </p>
+    </div>
+  </section>
+
+  <section id="fluxo">
+    <div class="container">
+      <h2>Fluxo sugerido</h2>
+
+      <div class="card">
+        <ol style="padding-left:20px">
+          <li>O colaborador comunica sintomas ou necessidade ao gestor ou RH.</li>
+          <li>O RH verifica se é um caso não urgente.</li>
+          <li>Sendo não urgente, o colaborador é orientado a agendar consulta online.</li>
+          <li>O agendamento é feito pelo link fornecido pela empresa.</li>
+          <li>O colaborador realiza a consulta online com o(a) médico(a).</li>
+          <li>Se indicado, recebe atestado digital e orientações.</li>
+          <li>O colaborador apresenta o documento à empresa pelos canais internos.</li>
+        </ol>
+      </div>
+
+      <div class="card risk-box">
+        <strong>⚠️ Situações em que este serviço NÃO deve ser usado</strong>
+        <ul class="list-strong">
+          <li>Suspeita de infarto, AVC ou outras emergências.</li>
+          <li>Casos com risco de agravamento rápido.</li>
+          <li>Acidentes graves, traumas importantes ou sangramentos intensos.</li>
+        </ul>
+        <p>
+          Nesses cenários, o colaborador deve ser encaminhado diretamente a um serviço
+          de urgência (UPA, pronto-socorro etc.), e não ao agendamento de consulta online.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2>Contato para empresas</h2>
+      <div class="card">
+        <p>
+          Se a sua empresa tem interesse em utilizar a telemedicina em casos não urgentes,
+          entre em contato para alinhar dúvidas e condições de uso.
+        </p>
+        <p><strong>E-mail:</strong> seuemail@profissional.com</p>
+        <p><strong>WhatsApp corporativo:</strong> <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank">(xx) xxxxx-xxxx</a></p>
+        <p><strong>Agendamento online (caso já contratado):</strong>
+          <a href="SUA_URL_DA_SHOSP_AQUI" target="_blank">acessar agenda</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -286,7 +472,7 @@
 
 <footer>
   <div class="container">
-    <p>Atendimento médico online para empresas em situações não urgentes.</p>
+    <p>Atendimento médico online para empresas em situações não urgentes, com foco em segurança, ética e responsabilidade.</p>
   </div>
 </footer>
 
